@@ -28,9 +28,9 @@ describe('Section 1: Functional tests', () => {
         cy.get('[data-testid="phoneNumberTestId"]').type('555666777')
         cy.get('input[name="password"]').type(password)
 
-        //uncomment relevent part to run the test by removing "/*...*/"
+        //uncomment relevent part to run the test by removing "/*...*/" and add the same again to already tested part to test another block
 
-        /* // Type confirmation password which is different from first password
+       // Type confirmation password which is different from first password
         cy.get('[name="confirm"]').type('Priti123')
         cy.get('h2').contains('Password').click()
         // Assert that submit button is not enabled
@@ -38,9 +38,9 @@ describe('Section 1: Functional tests', () => {
         // Assert that successful message is not visible
         cy.get('#success_message').should('not.be.visible')
         // Assert that error message is visible
-        cy.get('#password_error_message').should('have.css', 'display', 'block') */
+        cy.get('#password_error_message').should('have.css', 'display', 'block')
 
-        /* //Confirmation password that matches main password
+       /* //Confirmation password that matches main password
         cy.get('[name="confirm"]').type(password)
         cy.get('h2').contains('Password').click()
         // Assert that submit button is enabled
@@ -229,7 +229,6 @@ describe('Section 2: Visual tests', () => {
         })
     })
 
-
     // Create test similar to previous one
     it('Animal dropdown is correct', () => {
         // Select second element and create screenshot for this area, and full page
@@ -250,16 +249,3 @@ describe('Section 2: Visual tests', () => {
     })
 
 })
-
-function inputValidData() {
-    cy.log('Username will be filled')
-    cy.get('input[data-testid="user"]').type('Something')
-    cy.get('#email').type('validemail@yeap.com')
-    cy.get('[data-cy="name"]').type('John')
-    cy.get('#lastName').type('Doe')
-    cy.get('[data-testid="phoneNumberTestId"]').type('10203040')
-    // If element has multiple classes, then one of them can be used
-    cy.get('#password').type('MyPass')
-    cy.get('#confirm').type('MyPass')
-    cy.get('h2').contains('Password').click()
-}
